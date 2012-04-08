@@ -1426,6 +1426,11 @@
     //}}}
     function destroy() //{{{
     {
+      // quickfix for non-image mode
+      if (!img_mode) {
+          $origimg.detach().insertAfter($div);
+          $origimg.removeAttr('style');
+      }
       $div.remove();
       $origimg.show();
       $(obj).removeData('Jcrop');
